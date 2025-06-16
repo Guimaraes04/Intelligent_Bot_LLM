@@ -32,7 +32,9 @@ def query_ollama(prompt: str, model="mistral"):
 
 
 def test_ollama_connection():
-    """Testa a conexão com o Ollama e lista modelos disponíveis."""
+    """
+    Testa a conexão com o Ollama e lista modelos disponíveis
+    """
     try:
         # Verifica se o Ollama está rodando
         response = requests.get(f"{OLLAMA_URL}/api/tags")
@@ -43,7 +45,7 @@ def test_ollama_connection():
                 print(f"  - {model['name']}")
             return True
         else:
-            print("❌ Ollama não está respondendo corretamente")
+            print("❌ Ollama não está a responder corretamente")
             return False
     except requests.exceptions.ConnectionError:
         print("❌ Não foi possível conectar ao Ollama")

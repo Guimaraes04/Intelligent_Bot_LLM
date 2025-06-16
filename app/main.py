@@ -8,24 +8,25 @@ knowledge_base = []
 
 
 def build_knowledge_base():
-    """Constrói a base de conhecimento usando Wikipedia."""
+    """
+    Constrói a base de conhecimento através da Wikipedia
+    """
     global knowledge_base
 
     termos = [
-        "Inteligência artificial",
-        "Aprendizado de máquina",
-        "Redes neurais artificiais",
-        "Processamento de linguagem natural",
-        "Deep learning",
-        "Machine learning"
+        "Inteligência Artificial",
+        "Machine Learning",
+        "Redes Neurais Artificiais",
+        "Processamento de Linguagem Natural",
+        "Deep Learning"
     ]
 
-    print("📥 Baixando artigos da Wikipedia...")
+    print("📥 A descarregar artigos da Wikipedia...")
     knowledge_base = []
 
     for termo in termos:
         try:
-            print(f"  📄 Baixando: {termo}")
+            print(f"  📄 A descarregar: {termo}")
             artigo = get_wikipedia_article(termo)
             if artigo["content"].strip():
                 knowledge_base.append(artigo)
@@ -33,13 +34,15 @@ def build_knowledge_base():
             else:
                 print(f"  ⚠️ {termo} - conteúdo vazio")
         except Exception as e:
-            print(f"  ❌ Erro ao baixar {termo}: {e}")
+            print(f"  ❌ Erro ao descarregar {termo}: {e}")
 
     print(f"\n📚 Base de conhecimento construída com {len(knowledge_base)} artigos.")
 
 
 def simple_search(query, max_results=2):
-    """Busca simples por palavras-chave nos artigos."""
+    """
+    Procura simples por palavras-chave nos artigos
+    """
     if not knowledge_base:
         return []
 
@@ -70,9 +73,11 @@ def simple_search(query, max_results=2):
 
 
 def answer_question(question: str):
-    """Responde usando Wikipedia quando relevante, senão usa conhecimento geral."""
+    """
+    Responde através da Wikipedia quando relevante, senão usa conhecimento geral
+    """
 
-    # Busca na base de conhecimento
+    # Procura na base de conhecimento
     relevant_articles = simple_search(question)
 
     if relevant_articles:
@@ -96,7 +101,7 @@ PERGUNTA: {question}
 
 INSTRUÇÕES:
 - Usa o contexto fornecido para responder à pergunta
-- Se a pergunta não estiver relacionada com o contexto, responde com o teu conhecimento geral
+- Se a pergunta não estiver relacionada com o contexto, responde com o conhecimento geral
 - Responde sempre em português
 - Sê claro e direto
 - Se não souberes a resposta, diz que não sabes
@@ -119,15 +124,17 @@ INSTRUÇÕES:
 
 RESPOSTA:"""
 
-    print("🤖 Gerando resposta...")
+    print("🤖 A gerar a resposta...")
     answer = query_ollama(prompt)
     print("\n🤖 Resposta da IA:\n")
     print(answer)
 
 
 def interactive_mode():
-    """Modo interativo para fazer múltiplas perguntas."""
-    print("\n💬 Modo interativo iniciado. Digite 'sair' para terminar.")
+    """
+    Modo interativo para fazer múltiplas perguntas
+    """
+    print("\n💬 Modo interativo iniciado. Insira a string 'sair' para terminar.")
 
     while True:
         try:
