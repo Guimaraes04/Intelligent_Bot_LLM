@@ -36,7 +36,6 @@ def test_ollama_connection():
     Testa a conexão com o Ollama e lista modelos disponíveis
     """
     try:
-        # Verifica se o Ollama está rodando
         response = requests.get(f"{OLLAMA_URL}/api/tags")
         if response.status_code == 200:
             models = response.json().get("models", [])
@@ -53,8 +52,6 @@ def test_ollama_connection():
 
 
 if __name__ == "__main__":
-    # Teste de conexão
     if test_ollama_connection():
-        # Teste simples de geração
         test_response = query_ollama("Responde em português: Qual é a capital do Brasil?")
         print(f"\n🧪 Teste de resposta:\n{test_response}")
