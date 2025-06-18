@@ -1,0 +1,20 @@
+{
+  "name": "ai-bot-express-server",
+  "version": "1.0.0",
+  "description": "Express server to serve frontend and proxy backend API calls for AI Bot.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "concurrently --kill-others \"python ../backend/server.py\" \"npm start\""
+  },
+  "keywords": [],
+  "author": "Hugo e Miguel",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "http-proxy-middleware": "^2.0.6"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

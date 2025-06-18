@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Bot - Your Intelligent Assistant</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><span class="highlight">AI Bot</span> - Your Intelligent Assistant</h1>
+            <p>Ask me anything, powered by Wikipedia and Ollama!</p>
+        </header>
+
+        <main>
+            <div class="chat-interface">
+                <div class="chat-log" id="chatLog">
+                    <div class="message bot-message">
+                        <p>Hello! How can I help you today?</p>
+                    </div>
+                </div>
+                <div class="input-area">
+                    <input type="text" id="questionInput" placeholder="Type your question here...">
+                    <button id="askButton">Ask</button>
+                </div>
+            </div>
+            <div class="loading-indicator" id="loadingIndicator">
+                <div class="spinner"></div>
+                <p>Thinking...</p>
+            </div>
+            <div class="error-message" id="errorMessage">
+                <p>Oops! Something went wrong. Please try again.</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Wour AI Bot Project. Created by: Hugo and Miguel</p>
+        </footer>
+    </div>
+
+    <script src="static/js/script.js"></script>
+</body>
+</html>
