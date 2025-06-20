@@ -3,7 +3,7 @@ import requests
 
 OLLAMA_URL = os.getenv("OLLAMA_URL", "http://localhost:11434")
 
-def query_ollama(prompt: str, model="mistral"):
+def query_ollama(prompt: str, model="llama3.1"):
     response = requests.post(
         f"{OLLAMA_URL}/api/generate",
         json={
